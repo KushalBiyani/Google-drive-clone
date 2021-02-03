@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Container, Alert } from 'react-bootstrap';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import { Link, useHistory } from "react-router-dom"
 
 export default function SignUp() {
@@ -21,7 +21,7 @@ export default function SignUp() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            history.push("/addDetails")
+            history.push("/")
         } catch {
             setError(error)
         }

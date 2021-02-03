@@ -13,19 +13,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password)    
-  }
-  function addDetails(userName , contactNumber){
-    console.log(contactNumber)
-    return (currentUser.updateProfile({
-      displayName: userName,
-      phoneNumber: contactNumber
-    }).then(function() {
-      console.log("sucess")
-    }).catch(function(error) {
-      console.log(error)
-    }))
-
+    return auth.createUserWithEmailAndPassword(email, password)
   }
 
   function login(email, password) {
@@ -47,6 +35,7 @@ export function AuthProvider({ children }) {
   function updatePassword(password) {
     return currentUser.updatePassword(password)
   }
+
   function signInWithGoogle() {
     const googleProvider = new firebase.auth.GoogleAuthProvider()
     return auth.signInWithPopup(googleProvider)
@@ -67,10 +56,9 @@ export function AuthProvider({ children }) {
     signup,
     logout,
     resetPassword,
-    updateEmail,
-    updatePassword,
     signInWithGoogle,
-    addDetails
+    updateEmail,
+    updatePassword
   }
 
   return (
